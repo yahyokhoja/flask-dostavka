@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доставка еды</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('main.index') }}">Главная</a>
+        <a href="{{ url_for('admin.dashboard') }}">Админка</a> <!-- Ссылка на админку -->
+        <a href="{{ url_for('auth.register') }}">Регистрация</a> <!-- Ссылка на регистрацию -->
+    </nav>
+
+    <h1>Меню</h1>
+    <ul>
+        {% for dish in dishes %}
+            <li>{{ dish.name }} - {{ dish.price }} руб.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

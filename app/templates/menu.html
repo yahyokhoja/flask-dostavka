@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Главная</a></li>
+                <li><a href="{{ url_for('admin') }}">Админ-меню</a></li>
+                <li><a href="{{ url_for('menu') }}">Меню</a></li>
+                <li><a href="{{ url_for('login') }}">Войти</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Наше меню</h1>
+        <ul>
+            <li>Блюдо 1</li>
+            <li>Блюдо 2</li>
+            <li>Блюдо 3</li>
+            <!-- Вы можете добавить динамическое отображение блюд из базы данных -->
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2025 Доставка еды</p>
+    </footer>
+</body>
+</html>
