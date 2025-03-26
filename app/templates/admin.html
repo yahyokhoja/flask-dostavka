@@ -10,17 +10,30 @@
     <header>
         <nav>
             <ul>
-                <li><a href="{{ url_for('index') }}">Главная</a></li>
-                <li><a href="{{ url_for('admin') }}">Админ-меню</a></li>
-                <li><a href="{{ url_for('menu') }}">Меню</a></li>
-                <li><a href="{{ url_for('login') }}">Войти</a></li>
+                <li><a href="{{ url_for('main.index') }}">Главная</a></li>
+                <li><a href="{{ url_for('admin_routes.dashboard') }}">Админ-меню</a></li>
+                <li><a href="{{ url_for('main.menu') }}">Меню</a></li>
+                <li><a href="{{ url_for('auth_routes.login') }}">Войти</a></li>
+                <li><a href="{{ url_for('admin_routes.add_dish') }}">Добавить блюдо</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <h1>Админ-меню</h1>
         <p>Здесь можно управлять блюдами, пользователями и заказами.</p>
-        <!-- Добавьте здесь соответствующие элементы администрирования -->
+        <section>
+            <h2>Управление блюдами</h2>
+            <a href="{{ url_for('admin_routes.add_dish') }}">Добавить блюдо</a>
+            <a href="{{ url_for('admin_routes.view_dishes') }}">Просмотреть блюда</a>
+        </section>
+        <section>
+            <h2>Управление пользователями</h2>
+            <a href="{{ url_for('admin_routes.view_users') }}">Просмотреть пользователей</a>
+        </section>
+        <section>
+            <h2>Управление заказами</h2>
+            <a href="{{ url_for('admin_routes.view_orders') }}">Просмотреть заказы</a>
+        </section>
     </main>
     <footer>
         <p>&copy; 2025 Доставка еды</p>

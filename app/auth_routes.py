@@ -1,17 +1,16 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+# app/auth_routes.py
+from flask import Blueprint, render_template, flash, redirect, url_for
+from .forms import RegisterForm
+from .models import User  # Модели пользователей, если необходимо
 
-bp_auth = Blueprint('auth', __name__)
-
-@bp_auth.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        # Логика для обработки входа
-        return redirect(url_for('main.index'))
-    return render_template('login.html')
+bp_auth = Blueprint('auth_routes', __name__)
 
 @bp_auth.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == 'POST':
-        # Логика для регистрации нового пользователя
-        return redirect(url_for('main.index'))
-    return render_template('register.html')
+    form = RegisterForm()
+    if form.validate_on_submit():
+        # Логика регистрации пользователя
+        flash('Вы успешно зарегистрировались!', 'success')
+        return redirect(url_for('auth_routes.login'))  # Исправлено на 'auth_routes.login'
+
+    return render_template('register.html', form=form)

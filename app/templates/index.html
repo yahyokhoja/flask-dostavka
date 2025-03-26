@@ -9,8 +9,8 @@
 <body>
     <nav>
         <a href="{{ url_for('main.index') }}">Главная</a>
-        <a href="{{ url_for('admin.dashboard') }}">Админка</a> <!-- Ссылка на админку -->
-        <a href="{{ url_for('auth.register') }}">Регистрация</a> <!-- Ссылка на регистрацию -->
+        <li><a href="{{ url_for('admin_routes.dashboard') }}">Админ-меню</a></li>
+        <a href="{{ url_for('auth_routes.register') }}">Регистрация</a> <!-- Ссылка на регистрацию -->
     </nav>
 
     <h1>Меню</h1>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main.index') }}">Главная</a></li>
+                <a href="{{ url_for('auth_routes.login') }}">Войти</a>
+                <a href="{{ url_for('auth_routes.register') }}">Регистрация</a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Регистрация</h1>
+        <!-- templates/register.html -->
+<form method="POST" action="{{ url_for('auth_routes') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        <label for="username">Имя пользователя</label>
+        {{ form.username() }}
+        {% if form.username.errors %}
+            <ul>
+                {% for error in form.username.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div>
+        <label for="phone_number">Номер телефона</label>
+        {{ form.phone_number() }}
+        {% if form.phone_number.errors %}
+            <ul>
+                {% for error in form.phone_number.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div>
+        <label for="password">Пароль</label>
+        {{ form.password() }}
+        {% if form.password.errors %}
+            <ul>
+                {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div>
+        <label for="confirm_password">Подтвердите пароль</label>
+        {{ form.confirm_password() }}
+        {% if form.confirm_password.errors %}
+            <ul>
+                {% for error in form.confirm_password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <button type="submit">Зарегистрироваться</button>
+</form>
+
+       
+    </main>
+    <footer>
+        <p>&copy; 2025 Доставка еды</p>
+    </footer>
+</body>
+</html>
